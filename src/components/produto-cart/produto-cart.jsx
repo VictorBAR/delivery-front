@@ -1,5 +1,4 @@
 import "./produto-cart.css";
-import foto from "../../assets/hamburguer.png";
 import { CartContext } from "../../contexts/cart-context";
 import { useContext } from "react";
 

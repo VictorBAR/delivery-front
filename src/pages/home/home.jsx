@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/navbar.jsx";
 import ProdutoVitrine from "../../components/produto-vitrine/produto-vitrine.jsx";
-import api from "../../services/api.js";
+/* import api from "../../services/api.js"; */
 import { lista_produtos } from "../../dados.js"
 
 function Home(){
@@ -9,14 +9,17 @@ function Home(){
     const [produtos, setProdutos] = useState(lista_produtos);
 
     useEffect(() => {
-        api.get("/produtos")
+
+        setProdutos(produtos);
+
+        /* api.get("/produtos")
         .then((resp) => {
             console.log(resp.data)
             setProdutos(produtos);
         })
         .catch((err) => {
             alert('Erro ao carregar produtos');
-        })
+        }) */
     }, []);
 
     return <>
@@ -37,7 +40,8 @@ function Home(){
                                            nome={prod.nome}
                                            descricao={prod.descricao}
                                            preco={prod.preco}
-                                           foto={prod.foto}  />
+                                           foto={prod.foto} 
+                                           />
                 })                
             }
         </div>

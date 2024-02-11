@@ -7,16 +7,6 @@ function CartProvider(props){
     const [cartItems, setCartItems] = useState([]);
     const [totalCart, setTotalCart] = useState(0);
 
-    /*
-    item:
-    {
-        id: 1,
-        nome: "X-Tudo",
-        preco: 20.00,
-        foto: "https://jornadajs-food.s3.amazonaws.com/spicy.png"
-    }
-    */
-
     function AddItemCart(item){
         
         let cartItemsNovo = [];

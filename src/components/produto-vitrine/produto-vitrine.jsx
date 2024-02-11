@@ -1,42 +1,57 @@
 import "./produto-vitrine.css";
-import bag from "../../assets/bag-black.png";
 import { CartContext } from "../../contexts/cart-context";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import bag from "../../assets/bag-black.png";
+import "../modal/modal.css";
+import Modal from "../modal/modal";
+// import Modal from "../modal/modal";
 
-function ProdutoVitrine(props){
+function ProdutoVitrine(props) {
+    const { AddItemCart } = useContext(CartContext);
+    const [showModal, setShowModal] = useState(false);
 
-    const {AddItemCart} = useContext(CartContext);
+    function AddItem() {
+        setShowModal(true);
+    }
 
-    function AddItem(){
-
+    function handleAddToCart() {
         const item = {
             id: props.id,
             nome: props.nome,
             preco: props.preco,
             foto: props.foto,
             qtd: 1
-        }
+        };
 
         AddItemCart(item);
+        setShowModal(false);
     }
 
-    return <div className="produto-box text-center">
-        <img src={props.foto} alt="Foto" />
-        
-        <div>
-            <h2>{props.nome}</h2>
-            <p className="prod-vitrine-descricao">{props.descricao}</p>
-            <p className="prod-vitrine-preco">{new Intl.NumberFormat('pt-BR', 
-                    {style: 'currency', currency: 'BRL'}).format(props.preco)}</p>
-        </div>
+    function handleCloseModal() {
+        setShowModal(false);
+    }
+    
 
-        <div>
-            <button onClick={AddItem} className="btn btn-cart">
-                <img src={bag} className="icon" />
-                Adicionar
-            </button>
+    return (
+        <div className="produto-box text-center" onClick={AddItem}>
+            <img src={props.foto} alt="Foto" />
+
+            <div>
+                <h2>{props.nome}</h2>
+                <p className="prod-vitrine-descricao">{props.descricao}</p>
+                <p className="prod-vitrine-preco">
+                    {new Intl.NumberFormat("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                    }).format(props.preco)}
+                </p>
+            </div>
+
+            {showModal && (
+                <Modal item={props} handleAddToCart={handleAddToCart} handleCloseModal={handleCloseModal} />
+            )}
         </div>
-    </div>
+    );
 }
 
 export default ProdutoVitrine;

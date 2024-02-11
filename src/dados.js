@@ -6,6 +6,7 @@ const lista_produtos = [
         nome: "Spicy Burguer", 
         descricao: "Hamburguer de 250g, queijo, tomate, alface e cebola", 
         preco: 24.90,
+        detalhes: [{nome: "", descrição: "", opções: ["", ""], tipo: ""}],
         foto: "https://jornadajs-food.s3.amazonaws.com/spicy.png"
     },
     {
