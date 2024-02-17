@@ -1,0 +1,39 @@
+#categoriaNav {
+    width: 100%;
+    background: white;
+    z-index: 1000;
+    transition: top 0.3s ease;
+  }
+  
+.fixedNav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.relativeNav {
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    background: white;
+    z-index: 1000;
+}
+
+.category-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+  
+.category-item {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    font-weight: bold;
+}

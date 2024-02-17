@@ -6,7 +6,11 @@ const lista_produtos = [
         nome: "Spicy Burguer", 
         descricao: "Hamburguer de 250g, queijo, tomate, alface e cebola", 
         preco: 24.90,
-        detalhes: [{nome: "", descrição: "", opções: ["", ""], tipo: ""}],
+        categoria: "Hamburguer",
+        detalhes: [
+            {nome: "pão", descrição: "escolha o tipo de pão", opcoes: ["tradicional", "pão mel"], tipo: "select"},
+            {nome: "observação:", descrição: "", tipo: "text"},
+        ],
         foto: "https://jornadajs-food.s3.amazonaws.com/spicy.png"
     },
     {
@@ -14,6 +18,11 @@ const lista_produtos = [
         nome: "Sanduba", 
         descricao: "Sanduiche natural, alface, tomate, pão integral e orégano", 
         preco: 22.00,
+        categoria: "Sanduíches",
+        detalhes: [
+            {nome: "pão", descrição: "escolha o tipo de pão", opcoes: ["tradicional", "pão mel"], tipo: "select"},
+            {nome: "observação:", descrição: "", tipo: "text"},
+        ],
         foto: "https://jornadajs-food.s3.amazonaws.com/sanduba.png"
     },
     {
@@ -21,43 +30,105 @@ const lista_produtos = [
         nome: "Super Burguer", 
         descricao: "Hamburguer de 300g, molho, queijo, tomate, alface e cebola", 
         preco: 29.90,
+        categoria: "Hamburguer",
+        detalhes: [
+            {nome: "pão", descrição: "escolha o tipo de pão", opcoes: ["tradicional", "pão mel"], tipo: "select"},
+            {nome: "observação:", descrição: "", tipo: "text"},
+        ],
         foto: "https://jornadajs-food.s3.amazonaws.com/super.png"
     },
     {
         id: 4, 
         nome: "Mega", 
+        categoria: "Hamburguer",
         descricao: "Hamburguer de 300g, maionese, tomate, alface, queijo e cebola", 
         preco: 34.90,
+        detalhes: [
+            {nome: "pão", descrição: "escolha o tipo de pão", opcoes: ["tradicional", "pão mel"], tipo: "select"},
+            {nome: "observação:", descrição: "", tipo: "text"},
+        ],
         foto: "https://jornadajs-food.s3.amazonaws.com/mega.png"
     },
     {
         id: 5, 
         nome: "Penne", 
+        categoria: "Pratos",
         descricao: "Penne ao molho especial de tomates rústicos, ervas aromáticas e cebola", 
         preco: 27.00,
+        detalhes: [
+            {nome: "pão", descrição: "escolha o tipo de pão", opcoes: ["tradicional", "pão mel"], tipo: "select"},
+            {nome: "observação:", descrição: "", tipo: "text"},
+        ],
         foto: "https://jornadajs-food.s3.amazonaws.com/penne.png"
     },
     {
         id: 6, 
         nome: "Fritas", 
+        categoria: "Hamburguer",
         descricao: "Batata frita crocante com molho especial de maionese da casa", 
         preco: 14.90,
+        detalhes: [
+            {nome: "pão", descrição: "escolha o tipo de pão", opcoes: ["tradicional", "pão mel"], tipo: "select"},
+            {nome: "observação:", descrição: "", tipo: "text"},
+        ],
         foto: "https://jornadajs-food.s3.amazonaws.com/fritas.png"
     },
     {
         id: 7, 
         nome: "Coca-Cola Lata", 
+        categoria: "Bebidas",
         descricao: "Coca-cola em lata de 300ml, trincando de gelada para você", 
         preco: 9.90,
+        detalhes: [
+            {nome: "pão", descrição: "escolha o tipo de pão", opcoes: ["tradicional", "pão mel"], tipo: "select"},
+            {nome: "observação:", descrição: "", tipo: "text"},
+        ],
         foto: "https://jornadajs-food.s3.amazonaws.com/coca.png"
     },
     {
         id: 8,
         nome: "Combo Turbo",
+        categoria: "Hamburguer",
         descricao: "Hamburguer de 300g, coca-cola em lata de 300ml e fritas crocante",
         preco: 49.9,
+        detalhes: [
+            {nome: "pão", descrição: "escolha o tipo de pão", opcoes: ["tradicional", "pão mel"], tipo: "select"},
+            {nome: "observação:", descrição: "", tipo: "text"},
+        ],
+        foto: "https://jornadajs-food.s3.amazonaws.com/combo.png"
+    },
+    {
+        id: 9,
+        nome: "Combo Turbo",
+        categoria: "Hamburguer",
+        descricao: "Hamburguer de 300g, coca-cola em lata de 300ml e fritas crocante",
+        preco: 49.9,
+        detalhes: [
+            {nome: "pão", descrição: "escolha o tipo de pão", opcoes: ["tradicional", "pão mel"], tipo: "select"},
+            {nome: "observação:", descrição: "", tipo: "text"},
+        ],
+        foto: "https://jornadajs-food.s3.amazonaws.com/combo.png"
+    },
+    {
+        id: 10,
+        nome: "Combo Turbo",
+        categoria: "Hamburguer",
+        descricao: "Hamburguer de 300g, coca-cola em lata de 300ml e fritas crocante",
+        preco: 49.9,
+        detalhes: [
+            {nome: "pão", descrição: "escolha o tipo de pão", opcoes: ["tradicional", "pão mel"], tipo: "select"},
+            {nome: "observação:", descrição: "", tipo: "text"},
+        ],
         foto: "https://jornadajs-food.s3.amazonaws.com/combo.png"
     }
+];
+
+const categorias = [
+    {nome: "Hamburguer", id: "1"},
+    {nome: "Pizzas", id: "2"},
+    {nome: "Sanduíches", id: "3"},
+    {nome: "Bebidas", id: "4"},
+    {nome: "Pratos", id: "5"},
 ];
 
  
@@ -88,4 +159,4 @@ const carrinho = [
     }
 ]
 
-export {lista_produtos, pedidos, carrinho}
+export {lista_produtos, pedidos, carrinho, categorias}

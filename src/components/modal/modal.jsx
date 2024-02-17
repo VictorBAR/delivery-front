@@ -7,6 +7,9 @@ function Modal({
   handleAddToCart,
   handleCloseModal,
 }) {
+
+  console.log(item)
+
   return (
     <>
       <div className="modal-overlay" onClick={handleCloseModal} />
@@ -15,24 +18,27 @@ function Modal({
           <img src={item.foto} />
           <h3>{item.nome}</h3>
           <p>{item.descricao}</p>
-          <div>
-            <label>Borda Recheada?</label>
-            <select
-              /* value={isBorderFilled ? "filled" : "unfilled"}
-              onChange={(e) => setIsBorderFilled(e.target.value === "filled")} */
-            >
-              <option value="unfilled">Não</option>
-              <option value="filled">Sim</option>
-            </select>
-          </div>
-          <div>
-            <label>Algum pedido especial?</label>
-            <input
-              type="text"
-             /*  value={specialRequest}
-              onChange={(e) => setSpecialRequest(e.target.value)} */
-            />
-          </div>
+          {item.detalhes && item.detalhes.map((detail, index) => {
+            if (detail.tipo === "select") {
+              return (
+                <div key={index}>
+                  <label>{detail.nome}</label>
+                  <select>
+                    {detail.opcoes.map((opcao, index) => (
+                      <option key={index} value={opcao}>{opcao}</option>
+                    ))}
+                  </select>
+                </div>
+              );
+            } else {
+              return (
+                <div key={index}>
+                  <label>{detail.nome}</label>
+                  <input type="text" />
+                </div>
+              );
+            }
+          })}
         </div>
         <div className="modal-actions">
           <button className="btn btn-cart" onClick={handleAddToCart}><img src={bag} className="icon" />Adicionar ao carrinho</button>
